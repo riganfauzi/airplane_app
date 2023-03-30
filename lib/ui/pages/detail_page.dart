@@ -1,4 +1,5 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/widgets/interest_item.dart';
 import 'package:airplane/ui/widgets/photo_item.dart';
 import 'package:flutter/material.dart';
 
@@ -170,10 +171,72 @@ class DetailPage extends StatelessWidget {
                         imageUrl: 'assets/image_photo3.png',
                       ),
                     ],
+                  ),
+
+                  // NOTE : INTEREST
+                  SizedBox(height: 20),
+                  Text(
+                    'Interest',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  Row(
+                    children: [
+                      InterestItem(
+                        text: 'Kids Park',
+                      ),
+                      InterestItem(
+                        text: 'Honor Bridge',
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      InterestItem(
+                        text: 'City Museum',
+                      ),
+                      InterestItem(
+                        text: 'Central',
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            // NOTE: PRICE & BOOK BUTTON
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'IDR 2.500.000',
+                        style: blackTextStyle.copyWith(
+                          fontSize: 18,
+                          fontWeight: medium,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        'per orang',
+                        style: greenTextStyle.copyWith(
+                          fontWeight: light,
+                        ),
+                      ),
+                    ],
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
       );
@@ -181,12 +244,15 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackGroundColor,
-      body: Stack(
-        children: [
-          backgroundImage(),
-          customShadow(),
-          content(),
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Stack(
+          children: [
+            backgroundImage(),
+            customShadow(),
+            content(),
+          ],
+        ),
       ),
     );
   }
