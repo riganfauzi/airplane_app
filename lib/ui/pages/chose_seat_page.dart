@@ -80,6 +80,70 @@ class ChoseSeatPage extends StatelessWidget {
       );
     }
 
+    Widget selectSeat() {
+      return Container(
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 30),
+        padding: EdgeInsets.symmetric(
+          horizontal: 22,
+          vertical: 30,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: kWhiteColor,
+        ),
+        child: Column(
+          children: [
+            // NOTE: SEAT INDICATORS
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'A',
+                    style: grayTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    'A',
+                    style: grayTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    'A',
+                    style: grayTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    'A',
+                    style: grayTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    'A',
+                    style: grayTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kBackGroundColor,
       body: ListView(
@@ -88,6 +152,8 @@ class ChoseSeatPage extends StatelessWidget {
         ),
         children: [
           title(),
+          seatStatus(),
+          selectSeat(),
         ],
       ),
     );
