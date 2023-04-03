@@ -1,3 +1,4 @@
+import 'package:airplane/ui/widgets/seat_item.dart';
 import 'package:flutter/material.dart';
 import 'package:airplane/shared/theme.dart';
 
@@ -96,49 +97,97 @@ class ChoseSeatPage extends StatelessWidget {
           children: [
             // NOTE: SEAT INDICATORS
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                  child: Text(
-                    'A',
-                    style: grayTextStyle.copyWith(
-                      fontSize: 16,
+                Container(
+                  width: 48,
+                  height: 48,
+                  child: Center(
+                    child: Text(
+                      'A',
+                      style: grayTextStyle.copyWith(
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Text(
-                    'A',
-                    style: grayTextStyle.copyWith(
-                      fontSize: 16,
+                Container(
+                  width: 48,
+                  height: 48,
+                  child: Center(
+                    child: Text(
+                      'B',
+                      style: grayTextStyle.copyWith(
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Text(
-                    'A',
-                    style: grayTextStyle.copyWith(
-                      fontSize: 16,
+                Container(
+                  width: 48,
+                  height: 48,
+                  child: Center(
+                    child: Text(
+                      ' ',
+                      style: grayTextStyle.copyWith(
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Text(
-                    'A',
-                    style: grayTextStyle.copyWith(
-                      fontSize: 16,
+                Container(
+                  width: 48,
+                  height: 48,
+                  child: Center(
+                    child: Text(
+                      'C',
+                      style: grayTextStyle.copyWith(
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Text(
-                    'A',
-                    style: grayTextStyle.copyWith(
-                      fontSize: 16,
+                Container(
+                  width: 48,
+                  height: 48,
+                  child: Center(
+                    child: Text(
+                      'D',
+                      style: grayTextStyle.copyWith(
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
               ],
+            ),
+
+            // NOTE: SEAT 1
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(),
+                  SeatItem(),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '1',
+                        style: grayTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SeatItem(),
+                  SeatItem(),
+                ],
+              ),
             )
+            
           ],
         ),
       );
