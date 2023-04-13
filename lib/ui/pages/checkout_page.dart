@@ -1,5 +1,7 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/pages/success_checkout_page.dart';
 import 'package:airplane/ui/widgets/booking_details_item.dart';
+import 'package:airplane/ui/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutPage extends StatelessWidget {
@@ -242,54 +244,93 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     child: Center(
-                        child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 24,
-                          height: 24,
-                          margin: EdgeInsets.only(right: 6),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'assets/icon_plane.png',
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 24,
+                            height: 24,
+                            margin: EdgeInsets.only(right: 6),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/icon_plane.png',
+                                ),
                               ),
                             ),
                           ),
-                        ),
+                          Text(
+                            'Pay',
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 16,
+                              fontWeight: medium,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                         Text(
-                          'Pay',
-                          style: whiteTextStyle.copyWith(
-                            fontSize: 16,
+                          'IDR 80.400.000',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 18,
                             fontWeight: medium,
                           ),
-                        )
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Current Balance',
+                          style: grayTextStyle.copyWith(
+                            fontWeight: light,
+                          ),
+                        ),
                       ],
-                    )),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'IDR 80.400.000',
-                        style: blackTextStyle.copyWith(
-                          fontSize: 18,
-                          fontWeight: medium,
-                        ),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        'Current Balance',
-                        style: grayTextStyle.copyWith(
-                          fontWeight: light,
-                        ),
-                      ),
-                    ],
+                    ),
                   )
                 ],
               ),
             )
           ],
+        ),
+      );
+    }
+
+    Widget payNowButton() {
+      return CustomButton(
+        title: 'Pay Now',
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SuccessCheckoutPage(),
+            ),
+          );
+        },
+        margin: EdgeInsets.only(
+          top: 30,
+        ),
+      );
+    }
+
+    Widget tacButton() {
+      return Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.only(
+          top: 30,
+          bottom: 30,
+        ),
+        child: Text(
+          'Term and Conditions',
+          style: grayTextStyle.copyWith(
+            fontSize: 16,
+            fontWeight: light,
+            decoration: TextDecoration.underline,
+          ),
         ),
       );
     }
@@ -304,6 +345,8 @@ class CheckoutPage extends StatelessWidget {
           route(),
           bookingDetails(),
           paymentDetails(),
+          payNowButton(),
+          tacButton(),
         ],
       ),
     );
