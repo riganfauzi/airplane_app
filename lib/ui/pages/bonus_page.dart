@@ -139,7 +139,12 @@ class BonusPage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [bonusCard(), title(), subtitle(), startButton()],
+          children: [
+            bonusCard(),
+            title(),
+            subtitle(),
+            startButton(),
+          ],
         ),
       ),
     );
